@@ -103,62 +103,60 @@ class _ListStudentWidgetState extends State<ListStudentWidget> {
                     final data = studentList[index];
                     return Padding(
                       padding: const EdgeInsets.fromLTRB(10, 5, 10, 0),
-                      child: Card(
-                        color: Color.fromARGB(255, 20, 82, 206),
-                        elevation: 10,
-                        shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(20)),
-                        child: ListTile(
-                          onTap: () {
-                            Navigator.of(context).push(
-                              MaterialPageRoute(
-                                builder: (context) => ViewStudentScreen(
-                                  name: data.name,
-                                  age: data.age,
-                                  place: data.place,
-                                  phone: data.phone,
-                                  imagePath: data.image ?? "",
+                      child: Column(
+                        children: [
+                          ListTile(
+                            onTap: () {
+                              Navigator.of(context).push(
+                                MaterialPageRoute(
+                                  builder: (context) => ViewStudentScreen(
+                                    name: data.name,
+                                    age: data.age,
+                                    place: data.place,
+                                    phone: data.phone,
+                                    imagePath: data.image ?? "",
+                                  ),
                                 ),
-                              ),
-                            );
-                          },
-                          textColor: Color.fromARGB(255, 255, 255, 255),
-                          title: Text(data.name),
-                          subtitle: Text(data.age),
-                          leading: CircleAvatar(
-                              backgroundImage: data.image != null
-                                  ? FileImage(File(data.image!))
-                                  : AssetImage("assets/pngegg.png")
-                                      as ImageProvider),
-                          trailing: Row(
-                            mainAxisSize: MainAxisSize.min,
-                            children: [
-                              IconButton(
-                                  onPressed: () {
-                                    Navigator.of(context)
-                                        .push(MaterialPageRoute(
-                                      builder: (context) => Edit_Student(
-                                          index: index,
-                                          name: data.name,
-                                          age: data.age,
-                                          place: data.place,
-                                          phone: data.phone,
-                                          imagePath: data.image),
-                                    ));
-                                  },
-                                  icon: const Icon(
-                                    Icons.edit,
-                                    color: Colors.white,
-                                  )),
-                              IconButton(
-                                  onPressed: () {
-                                    deleteStudent(index);
-                                  },
-                                  icon: const Icon(Icons.delete,
-                                      color: Color.fromARGB(255, 255, 17, 0))),
-                            ],
+                              );
+                            },
+                            textColor: Color.fromARGB(255, 255, 255, 255),
+                            title: Text(data.name),
+                            subtitle: Text(data.age),
+                            leading: CircleAvatar(
+                                backgroundImage: data.image != null
+                                    ? FileImage(File(data.image!))
+                                    : AssetImage("assets/pngegg.png")
+                                        as ImageProvider),
+                            trailing: Row(
+                              mainAxisSize: MainAxisSize.min,
+                              children: [
+                                IconButton(
+                                    onPressed: () {
+                                      Navigator.of(context)
+                                          .push(MaterialPageRoute(
+                                        builder: (context) => Edit_Student(
+                                            index: index,
+                                            name: data.name,
+                                            age: data.age,
+                                            place: data.place,
+                                            phone: data.phone,
+                                            imagePath: data.image),
+                                      ));
+                                    },
+                                    icon: const Icon(
+                                      Icons.edit,
+                                      color: Colors.white,
+                                    )),
+                                IconButton(
+                                    onPressed: () {
+                                      deleteStudent(index);
+                                    },
+                                    icon: const Icon(Icons.delete,
+                                        color: Color.fromARGB(255, 255, 17, 0))),
+                              ],
+                            ),
                           ),
-                        ),
+                        ],
                       ),
                     );
                   },

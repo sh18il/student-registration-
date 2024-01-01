@@ -261,6 +261,7 @@ class _AddStudentWidgetState extends State<AddStudentWidget> {
         phone: _address,
         image: _selectedImage!.path);
     addStudent(_student);
+    Navigator.pop(context); 
   }
 
   Future _pickImageFromGallery() async {

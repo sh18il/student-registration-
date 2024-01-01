@@ -20,7 +20,7 @@ class StudentModel {
 
   @HiveField(5)
   final String? image;
-
+ 
   StudentModel(
       {required this.name,
       required this.age,
